@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategorieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.layout.layout');
+    return view('admin.dashboard.dashboard');
 });
+
+
+Route::prefix('kategori')->group(function () {
+
+    Route::get('/', CategorieController::class . '@index');
+});
+
+//
